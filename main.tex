@@ -1,0 +1,30 @@
+\documentclass{amsart}
+\usepackage[utf8]{inputenc}
+
+\title{cohomologia con grobner basis}
+\author{Cesar Galindo}
+\date{April 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Cohomologia}
+
+Dado un grupo finito quiero calcular $Z^2(G,\mathbb{Q}/\mathbb{Z})$. Tenemos que son simplemente las funciones \[\psi: G\times G\to \mathbb{Q}/\mathbb{Z}\] tal que \[\psi(xy,z)+\psi(x,y)=\psi(x,yz)+\psi(y,z)\] para todo $x,y,z\in G$.
+
+Esto entonces se puede escribir como un sistema de ecuaciones lineales homogéneo
+
+\[F(x,y,z)=X_{(xy,z)}+X_{(x,y)}-X_{(x,yz)}+X_{(y,z)}=0\]
+si además queremos que estas sean normalizadas les debemos agregar la ecuaciones
+
+\[X_{e,x}=X_{x,e}=0.\]
+
+
+Para implementarlo en GAP, se debe escribir la matriz que representa el sistema homogéneo.
+
+Es decir el sistema (no homogéneo) tiene $|G|^2$ variables y $|G|^3$ ecuaciones.
+
+Por lo tanto debo construirme $|G|^3$ filas de tamaño $|G|^2$.
+
+\end{document}
